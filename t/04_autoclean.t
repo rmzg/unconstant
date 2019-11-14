@@ -10,7 +10,9 @@ SKIP: {
 	}
 
 	package Bar {
-		use namespace::autoclean;
+		require namespace::autoclean;
+		namespace::autoclean->import(); # I hope this is the same as 'use namespace::autoclean'
+		                                # But we can't do that because of compile time errors..
 		use unconstant;
 		use constant FOO => 42;
 	}
